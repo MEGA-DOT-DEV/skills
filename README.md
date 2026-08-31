@@ -10,4 +10,4 @@ npx skills@latest add MEGA-DOT-DEV/skills
 
 ## Skills
 
-- **[accessible-content](./skills/accessible-content/SKILL.md)** — Placeholder for guidance on creating clear, inclusive, and accessible content.
+- **[accessible-content](./skills/accessible-content/SKILL.md)** — Evidence-bound review and authoring for content people, assistive technologies, and agents can read and use without guesswork.
