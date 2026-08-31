@@ -2,8 +2,6 @@
 
 A collection of focused skills for AI agents.
 
-[![skills.sh](https://skills.sh/b/MEGA-DOT-DEV/skills)](https://skills.sh/MEGA-DOT-DEV/skills)
-
 ## Install
 
 ```bash
