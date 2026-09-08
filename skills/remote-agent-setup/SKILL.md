@@ -9,7 +9,7 @@ You are on the laptop. Conduct the setup. Fetch each product's current install f
 
 ## Fetch, then install
 
-Before each install, open the live page and follow it. If you already know a command, you are wrong until the page confirms it.
+Before each install, open the live page and follow it. Verify against the page before running.
 
 | Layer | Docs |
 | --- | --- |
