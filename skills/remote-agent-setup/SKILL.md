@@ -5,11 +5,24 @@ description: Walk a human through putting Pi sessions on an always-on host with 
 
 # Remote agent setup
 
-You are on the laptop. Conduct the setup. Fetch each product's current install from its docs and run that — do not use remembered commands. Do not paste a script and leave. Do not call a layer done until its check passed.
+You are on the laptop. Conduct the setup. Fetch each product's current install from its docs and run that — do not use remembered commands. Do not paste a script and leave. Do not call a layer done until its check passed. If Tailscale, Herdr, or Pi is already present, skip that install and run the check only.
+
+## Done
+
+Pass/fail before you start. Fill this as you go; stop at the first fail.
+
+| Layer | Check |
+| --- | --- |
+| Host | SSH to the always-on machine |
+| Tailscale | Reach it from the laptop over Tailscale |
+| Herdr | On the host; laptop attached; detach survives |
+| Pi | On the host; authenticated session in a Herdr pane |
+| Moshi | Hook paired; phone round-trip to the same Pi session |
+| Recovery | Snapshot/backup named, or called out as missing |
 
 ## Fetch, then install
 
-Before each install, open the live page and follow it. Verify against the page before running.
+Before each install, open the live page and follow it. Confirm against the live docs page before running.
 
 | Layer | Docs |
 | --- | --- |
@@ -20,12 +33,14 @@ Before each install, open the live page and follow it. Verify against the page b
 
 ## Do not
 
-- Open SSH, Herdr, or Pi to the public internet. After Tailscale works, use that name.
+- Open SSH, Herdr, Moshi, or Pi to the public internet. Tailscale is private reachability; Herdr and Moshi attach over that path.
+- After Tailscale works, SSH with MagicDNS or Tailscale IP. Do not teach Tailscale SSH unless their docs push it.
 - Store auth keys, pairing tokens, API keys, or `.pem` files in this folder, a repo, or chat logs.
 - Invent flags or wrap an interactive installer in a non-interactive script.
 - Copy laptop Pi auth onto the host unless they asked.
 - Buy the VPS, click Tailscale login, or install Moshi on the phone.
 - Stop a Herdr server unless they intend to kill remote panes.
+- Build a Grok-bot fleet, a limen/vision/board, or vault-git. This skill is one Herdr/Pi/Moshi seat. Those are out of scope.
 
 ## Phases
 
@@ -35,25 +50,12 @@ Stop at the first failed check. Say what is blocked and who acts.
 
 **1. Host (human)** — They create the machine and give you SSH. Check: `ssh <host>` works. If not, stop.
 
-**2. Tailscale** — Install from the Tailscale Linux page on the VPS. They authenticate. They install Tailscale on the laptop and phone. Check: SSH via MagicDNS or Tailscale IP. Use that as `<host>` from here. Mention key expiry on a server if their docs do.
+**2. Tailscale** — If it already joins the tailnet, skip install and run the check. Otherwise install from the Tailscale Linux page on the VPS. They authenticate. They install Tailscale on the laptop and phone. Check: normal SSH via MagicDNS or Tailscale IP. Use that as `<host>` from here. Mention key expiry on a server if their docs do.
 
-**3. Herdr and Pi on the VPS** — Over SSH, install both from their current docs. Prove `herdr` and `pi` exist in a **fresh** SSH login, not the shell you just configured. Then attach the laptop Herdr client using the connecting-machines page — that step is interactive; if you have no TTY, print the command and wait. Check: the laptop sees the remote machine; detach; work on the host keeps running.
+**3. Herdr and Pi on the VPS** — If `herdr` or `pi` already exists in a **fresh** SSH login, skip that install and run its check. Otherwise install from their current docs, then prove both exist in a fresh SSH login, not the shell you just configured. Attach the laptop Herdr client using the connecting-machines page, over the Tailscale path — that step is interactive; if you have no TTY, print the command and wait. Check: the laptop sees the remote machine; detach; work on the host keeps running.
 
 **4. Auth and a workspace (human)** — Pi on the host needs its own login. Clone only the repos they name. Check: a Pi session in a Herdr pane on the VPS can talk to a model.
 
 **5. Moshi** — They install the app and add a connection to the VPS over Tailscale. On the host, follow the current Moshi hook docs: install the hook, pair it with the token from the app (they paste it; do not store it), enable the Pi integration, and run it so it survives logout. Persistence in this stack is Herdr, not another multiplexer. Check: Pi waits for input; the phone inbox shows it; the answer returns to the same session.
 
 **6. Recovery** — Always-on is not immortal. If they have no snapshot or backup, say so. Do not call the setup finished without naming that gap.
-
-## Done
-
-Pass/fail, not prose:
-
-| Layer | Check |
-| --- | --- |
-| Host | SSH to the always-on machine |
-| Tailscale | Reach it from the laptop over Tailscale |
-| Herdr | On the host; laptop attached; detach survives |
-| Pi | On the host; authenticated session in a Herdr pane |
-| Moshi | Hook paired; phone round-trip to the same Pi session |
-| Recovery | Snapshot/backup named, or called out as missing |
