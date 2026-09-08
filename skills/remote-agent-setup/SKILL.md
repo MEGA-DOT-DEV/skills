@@ -31,6 +31,16 @@ Before each install, open the live page and follow it. Confirm against the live 
 | Pi | https://pi.dev/docs/latest/quickstart |
 | Moshi | https://getmoshi.app/docs/introduction · https://getmoshi.app/docs/install-moshi-hook · https://getmoshi.app/docs/hooks |
 
+## Do not
+
+Keep SSH, Herdr, and Pi off the public internet. After Tailscale works, reach the host by MagicDNS or Tailscale IP with normal SSH.
+
+Never store auth keys, pairing tokens, API keys, or `.pem` files in the skill folder, a repo, or chat.
+
+Humans only: buy/create the VPS, Tailscale login, Moshi on the phone. You stop and wait.
+
+Don't stop a Herdr server unless they mean to kill remote panes.
+
 ## Phases
 
 Stop at the first failed check. Say what is blocked and who acts.
