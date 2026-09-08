@@ -1,9 +1,9 @@
 ---
-name: remote-agent-home
+name: remote-agent-setup
 description: Walk a human through putting Pi sessions on an always-on host with Tailscale, Herdr, and Moshi. Use when they want a remote agent setup, a VPS for coding agents, or to install Herdr and Pi on a server.
 ---
 
-# Remote agent home
+# Remote agent setup
 
 You are on the laptop. Conduct the setup. Fetch each product's current install from its docs and run that — do not use remembered commands. Do not paste a script and leave. Do not call a layer done until its check passed.
 
