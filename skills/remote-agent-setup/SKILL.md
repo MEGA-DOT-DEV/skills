@@ -31,17 +31,6 @@ Before each install, open the live page and follow it. Confirm against the live 
 | Pi | https://pi.dev/docs/latest/quickstart |
 | Moshi | https://getmoshi.app/docs/introduction · https://getmoshi.app/docs/install-moshi-hook · https://getmoshi.app/docs/hooks |
 
-## Do not
-
-- Open SSH, Herdr, Moshi, or Pi to the public internet. Tailscale is private reachability; Herdr and Moshi attach over that path.
-- After Tailscale works, SSH with MagicDNS or Tailscale IP. Do not teach Tailscale SSH unless their docs push it.
-- Store auth keys, pairing tokens, API keys, or `.pem` files in this folder, a repo, or chat logs.
-- Invent flags or wrap an interactive installer in a non-interactive script.
-- Copy laptop Pi auth onto the host unless they asked.
-- Buy the VPS, click Tailscale login, or install Moshi on the phone.
-- Stop a Herdr server unless they intend to kill remote panes.
-- Build a Grok-bot fleet, a limen/vision/board, or vault-git. This skill is one Herdr/Pi/Moshi seat. Those are out of scope.
-
 ## Phases
 
 Stop at the first failed check. Say what is blocked and who acts.
