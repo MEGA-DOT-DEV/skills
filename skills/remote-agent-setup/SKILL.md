@@ -55,6 +55,6 @@ Stop at the first failed check. Say what is blocked and who acts.
 
 **4. Auth and a workspace (human)** — Pi on the host needs its own login. Clone only the repos they name. Check: a Pi session in a Herdr pane on the VPS can talk to a model.
 
-**5. Moshi** — They install the app and add a connection to the VPS over Tailscale. On the host, follow the current Moshi hook docs: install the hook, pair it with the token from the app (they paste it; do not store it), enable the Pi integration, and run it so it survives logout. Persistence in this stack is Herdr, not another multiplexer. Check: Pi waits for input; the phone inbox shows it; the answer returns to the same session.
+**5. Moshi** — They install the app and add a connection to the VPS over Tailscale. On the host, follow the current Moshi hook docs: install the hook, pair it with the token from the app (they paste it; do not store it), and run it so it survives logout. Installing the hook wires Pi; there is no separate Pi switch. Persistence in this stack is Herdr, not another multiplexer. Check: Pi waits for input; the phone inbox shows it; the answer returns to the same session.
 
 **6. Recovery** — Always-on is not immortal. If they have no snapshot or backup, say so. Do not call the setup finished without naming that gap.
