@@ -11,3 +11,4 @@ npx skills@latest add MEGA-DOT-DEV/skills
 ## Skills
 
 - **[accessible-content](./skills/accessible-content/SKILL.md)** — Evidence-bound review and authoring for content people, assistive technologies, and agents can read and use without guesswork.
+- **[remote-agent-setup](./skills/remote-agent-setup/SKILL.md)** — Walk a human through putting Pi sessions on an always-on host with Tailscale, Herdr, and Moshi.
